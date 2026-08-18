@@ -158,6 +158,65 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         slider.style.cursor = 'grab';
     }
+
+    // Download confirmation modal (Windows / Linux)
+    const dlModal = document.getElementById('dlModal');
+    if (dlModal) {
+        const dlModalTitle = document.getElementById('dlModalTitle');
+        const dlModalBody = document.getElementById('dlModalBody');
+        const dlModalIcon = document.getElementById('dlModalIcon');
+        const dlModalDownload = document.getElementById('dlModalDownload');
+        const dlModalClose = document.getElementById('dlModalClose');
+        const dlModalCancel = document.getElementById('dlModalCancel');
+
+        const dlInfo = {
+            windows: {
+                title: 'Windows: SmartScreen warning',
+                icon: '<i class="fab fa-windows"></i>',
+                body: 'Windows SmartScreen may show a warning because EchoLAN is not signed with a paid code-signing certificate. If you see it, click <strong>More info</strong> and then <strong>Run anyway</strong>.'
+            },
+            linux: {
+                title: 'Linux: Uninstall previous version',
+                icon: '<i class="fab fa-linux"></i>',
+                body: 'You may need to uninstall the previous version manually before installing this update.'
+            }
+        };
+
+        function openDlModal(platform, url) {
+            const info = dlInfo[platform];
+            if (!info) {
+                window.location.href = url;
+                return;
+            }
+            dlModalIcon.innerHTML = info.icon;
+            dlModalTitle.textContent = info.title;
+            dlModalBody.innerHTML = info.body;
+            dlModalDownload.href = url;
+            dlModal.hidden = false;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDlModal() {
+            dlModal.hidden = true;
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.dl-btn[data-platform]').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                openDlModal(this.getAttribute('data-platform'), this.getAttribute('href'));
+            });
+        });
+
+        dlModalClose.addEventListener('click', closeDlModal);
+        dlModalCancel.addEventListener('click', closeDlModal);
+        dlModal.addEventListener('click', function (e) {
+            if (e.target === dlModal) closeDlModal();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !dlModal.hidden) closeDlModal();
+        });
+    }
 });
 
 // Particles Animation Logic

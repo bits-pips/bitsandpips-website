@@ -138,6 +138,7 @@
         <a
           href="https://github.com/bits-pips/bitsandpips-website/releases/download/v1.1.1/EchoLAN_Setup_x64.exe"
           class="dl-btn windows"
+          data-platform="windows"
         >
           <i class="fab fa-windows dl-icon"></i>
           <span>Windows</span>
@@ -147,6 +148,7 @@
         <a
           href="https://github.com/bits-pips/bitsandpips-website/releases/download/v1.1.1/echolan_1.1.1-6_amd64.deb"
           class="dl-btn linux"
+          data-platform="linux"
         >
           <i class="fab fa-linux dl-icon"></i>
           <span>Linux</span>
@@ -164,6 +166,7 @@
                 <span>App Store</span>
                 <span class="btn-subtext">Coming Soon</span>
             </div>
+      </div>
 
       <div
         style="
@@ -237,6 +240,31 @@
         </div>
       </div>
     </footer>
+
+    <!-- Download confirmation modal -->
+    <div
+      class="dl-modal-overlay"
+      id="dlModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dlModalTitle"
+      hidden
+    >
+      <div class="dl-modal">
+        <button class="dl-modal-close" id="dlModalClose" aria-label="Close">
+          &times;
+        </button>
+        <div class="dl-modal-icon" id="dlModalIcon"></div>
+        <h3 id="dlModalTitle">Before You Install</h3>
+        <p id="dlModalBody"></p>
+        <div class="dl-modal-actions">
+          <button class="dl-modal-btn cancel" id="dlModalCancel">Cancel</button>
+          <a class="dl-modal-btn download" id="dlModalDownload" href="#">
+            Download
+          </a>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

@@ -909,6 +909,114 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* Download confirmation modal */
+.dl-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+}
+
+.dl-modal-overlay[hidden] {
+    display: none;
+}
+
+.dl-modal {
+    background: white;
+    border-radius: var(--border-radius);
+    max-width: 440px;
+    width: 100%;
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.dl-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.dl-modal-close:hover {
+    color: var(--neutral-dark);
+}
+
+.dl-modal-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.dl-modal-icon .fa-windows {
+    color: #0078D7;
+}
+
+.dl-modal-icon .fa-linux {
+    color: #FCC624;
+}
+
+.dl-modal h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--neutral-dark);
+}
+
+.dl-modal p {
+    font-size: 0.95rem;
+    color: var(--neutral-gray);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.dl-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dl-modal-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.dl-modal-btn.cancel {
+    background: var(--neutral-light);
+    color: var(--neutral-gray);
+    border-color: #e2e8f0;
+}
+
+.dl-modal-btn.cancel:hover {
+    border-color: var(--neutral-gray);
+}
+
+.dl-modal-btn.download {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.dl-modal-btn.download:hover {
+    background: var(--primary-blue-dark);
+    transform: translateY(-2px);
+}
+
 /* Contact Form Styles */
 .contact-form {
     text-align: left;
