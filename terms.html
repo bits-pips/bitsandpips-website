@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.documentElement.classList.add("dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Bits & Pips Maldives</title>
     <link rel="canonical" href="https://www.bitsandpips.com/terms.html" />
@@ -36,15 +45,21 @@
                 <a href="/echolan.html">EchoLAN</a>
                 <a href="#contact">Contact</a>
             </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
 
-    <div style="background-color: #f8fafc; padding-top: 120px; padding-bottom: 60px;">
+    <div style="background-color: var(--neutral-light); padding-top: 120px; padding-bottom: 60px;">
         <div class="legal-content">
             <h1>Terms of Service</h1>
             <p class="last-updated">Last Updated: December 12, 2025</p>

@@ -61,6 +61,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Theme Toggle (Dark Mode) - default is light
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const root = document.documentElement;
+            if (root.classList.contains('dark')) {
+                root.classList.remove('dark');
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
+            } else {
+                root.classList.add('dark');
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+            }
+        });
+    }
+
     // Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.card, .about-teaser-content, .hero-content, .dl-btn, .contact-info, .stat-item, .testimonial');
     revealElements.forEach(el => el.classList.add('reveal-hidden'));

@@ -2,6 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Company - Bits & Pips Maldives Pvt Ltd</title>
     <link rel="canonical" href="https://www.bitsandpips.com/company.html" />
@@ -19,7 +28,7 @@
     <header class="header">
       <nav class="navbar">
         <a href="/" class="logo">
-          <img src="logo.png" alt="Bits & Pips" />
+          <img src="ezgif.com-effects.gif" alt="Bits & Pips" />
         </a>
         <div class="nav-links">
           <a href="/index.html">Home</a>
@@ -27,10 +36,16 @@
           <a href="/echolan.html">EchoLAN</a>
           <a href="/contact.html">Contact</a>
         </div>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </nav>
     </header>
@@ -62,7 +77,7 @@
         <!-- CHANGED: Removed inline style, added class 'span-2-desktop' -->
         <div class="card span-2-desktop">
           <h3>Our Mission</h3>
-          <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 20px">
+          <p style="font-size: 1.1rem; color: var(--neutral-gray); margin-bottom: 20px">
             Bits & Pips was founded with a singular objective: to restore
             privacy and connectivity in an increasingly centralized world.
           </p>
@@ -81,13 +96,13 @@
             <i class="fas fa-building card-icon"></i>
           </div>
           <h3>Corporate Profile</h3>
-          <ul style="list-style: none; margin-top: 20px; color: #4a5568">
+          <ul style="list-style: none; margin-top: 20px; color: var(--neutral-gray)">
             <li
               style="
                 margin-bottom: 12px;
                 display: flex;
                 justify-content: space-between;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid var(--border-subtle);
                 padding-bottom: 8px;
               "
             >
@@ -99,7 +114,7 @@
                 margin-bottom: 12px;
                 display: flex;
                 justify-content: space-between;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid var(--border-subtle);
                 padding-bottom: 8px;
               "
             >
@@ -111,7 +126,7 @@
                 margin-bottom: 12px;
                 display: flex;
                 justify-content: space-between;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid var(--border-subtle);
                 padding-bottom: 8px;
               "
             >
@@ -123,7 +138,7 @@
                 margin-bottom: 12px;
                 display: flex;
                 justify-content: space-between;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid var(--border-subtle);
                 padding-bottom: 8px;
               "
             >
@@ -225,7 +240,7 @@
         <div class="footer-grid">
           <div class="footer-col">
             <a href="/" class="logo" style="margin-bottom: 20px; filter: brightness(0) invert(1);">
-              <img src="logo.png" alt="Bits & Pips" style="height: 40px;" />
+              <img src="ezgif.com-effects.gif" alt="Bits & Pips" style="height: 65px;" />
             </a>
             <p style="text-align: left; font-size: 0.9rem; margin-bottom: 20px; max-width: 250px;">Building the next generation of secure, decentralized applications with a privacy-first approach.</p>
             <p style="text-align: left; font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Registered in the Republic of Maldives (C17362025)</p>

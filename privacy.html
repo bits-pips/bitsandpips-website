@@ -13,8 +13,47 @@
         .highlight { background-color: #f0f8ff; padding: 15px; border-left: 4px solid #0056b3; }
         footer { margin-top: 50px; font-size: 0.9em; color: #777; border-top: 1px solid #ddd; padding-top: 20px; }
     </style>
+    <style>
+        /* Dark mode */
+        html.dark body { background: #0F1117; color: #E6E8EE; }
+        html.dark h1 { color: #E6E8EE; }
+        html.dark h2 { color: #4DA3FF; }
+        html.dark .highlight { background-color: #1A2433; border-left: 4px solid #4DA3FF; }
+        html.dark footer { color: #8B93A3; border-top: 1px solid rgba(255, 255, 255, 0.15); }
+        html.dark a { color: #4DA3FF; }
+
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background: #fff;
+            color: #333;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        html.dark .theme-toggle {
+            background: #1A1D27;
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #E6E8EE;
+        }
+    </style>
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.documentElement.classList.add("dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
 
     <h1>Privacy Policy</h1>
     <p><strong>Last updated:</strong> December 12, 2025</p>
@@ -61,5 +100,26 @@
         &copy; 2025 Bits & Pips. All rights reserved.
     </footer>
 
+    <script>
+        (function () {
+            var btn = document.getElementById("theme-toggle");
+            if (!btn) return;
+            function render() {
+                btn.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
+            }
+            render();
+            btn.addEventListener("click", function () {
+                var root = document.documentElement;
+                if (root.classList.contains("dark")) {
+                    root.classList.remove("dark");
+                    try { localStorage.setItem("theme", "light"); } catch (e) {}
+                } else {
+                    root.classList.add("dark");
+                    try { localStorage.setItem("theme", "dark"); } catch (e) {}
+                }
+                render();
+            });
+        })();
+    </script>
 </body>
 </html>
